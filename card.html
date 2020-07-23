@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.amd.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="./script/app.js"></script>
+    <script src="./script/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="circle">
+          <p>Order Count</p>
+        </div>
+        <div class="content">
+          <p>Today's Order:2222222</p>
+          <p>Current Week Order:2222222</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="circle">
+          <p>Order Amount</p>
+        </div>
+        <div class="content">
+          <p>Today's Order:2222222</p>
+          <p>Current Week Order:2222222</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="circle">
+          <p>Order Count</p>
+        </div>
+        <div class="content">
+          <p>MTD Order:2222222</p>
+          <p>Last Month Order:2222222</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="circle">
+          <p>Order Amount</p>
+        </div>
+        <div class="content">
+          <p>MTD Order Amount:2222222</p>
+          <p>Last Month Amount:2222222</p>
+        </div>
+      </div>
+    </div>
+
+    <script id="maincard" type="text/x-handlebars-template">
+      <div class="card">
+        <div class="circle">
+          <p>
+            Order Count
+          </p>
+        </div>
+        <div class="content">
+          <p>
+            Today's Order:2222222
+          </p>
+          <p>
+            Current Week Order:2222222
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="circle">
+          <p>
+            Order Amount
+          </p>
+        </div>
+        <div class="content">
+          <p>
+            Today's Order:2222222
+          </p>
+          <p>
+            Current Week Order:2222222
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <!-- chartjs  -->
+    <div class="container">
+      <h2 style="text-align: center; color: #150ab8;">Daily Sale Report</h2>
+      <div id="chartContainer" class="chart"></div>
+    </div>
+
+    <!-- Order Table -->
+    <div class="container">
+      <div class="order_table">
+        <table
+          class="table table-bordered table-hover"
+          style="text-align: center;"
+        >
+          <h2 style="text-align: center; color: #150ab8;">Order Table</h2>
+
+          <thead>
+            <tr>
+              <th>Order NO</th>
+              <th>Total Amount</th>
+              <th>Total Quantity</th>
+              <th>User Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Moe</td>
+              <td>mary@example.com</td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+              <td>july@example.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Detail Order Report -->
+
+    <div class="container">
+      <div class="order_table">
+        <table
+          class="table table-bordered table-hover"
+          style="text-align: center;"
+        >
+          <h2 style="text-align: center; color: #150ab8;">
+            Detail Order Report
+          </h2>
+
+          <thead>
+            <tr>
+              <th>UserName</th>
+              <th>OrderNo</th>
+              <th>OrderDate</th>
+              <th>Status</th>
+              <th>Total Amount</th>
+              <th>TotalQty</th>
+              <th>TotalProductCount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Moe</td>
+              <td>mary@example.com</td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+              <td>july@example.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- chartjs  -->
+    <script src="./script/handlebars.js"></script>
+    <script src="./script/jquery.js"></script>
+
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

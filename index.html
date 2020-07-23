@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="./Date/daterangepicker.css"
+    />
+    <script src="https://use.fontawesome.com/2e06953d2a.js"></script>
+  </head>
+
+  <body>
+    <div class="container_card"></div>
+    <!-- charjs -->
+    <div class="container">
+      <h2 style="text-align: center; color: #150ab8;">
+        Daily Sale Report
+      </h2>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="container_table"></div>
+    <script id="maincard" type="text/x-handlebars-template">
+      {{#each count}}
+        <div class="card">
+          <div class="circle">
+            <p>
+              {{heading1}}
+            </p>
+          </div>
+          <div class="content">
+            <p>
+              {{today_order}}:
+              {{#if c}}
+                {{torder}}
+              {{else}}
+                {{mtdorder}}
+              {{/if}}
+            </p>
+            <p>
+              {{Current_Week_Order}}:
+              {{#if c}}
+                {{worder}}
+              {{else}}
+                {{morder}}
+              {{/if}}
+            </p>
+          </div>
+        </div>
+      {{/each}}
+      {{#each amount}}
+        <div class="card">
+          <div class="circle">
+            <p>
+              {{heading2}}
+            </p>
+          </div>
+          <div class="content">
+            <p>
+              {{"Today_Order_Amount"}}:
+              {{#if m}}
+                {{tamount}}
+              {{else}}
+                {{mtdamount}}
+              {{/if}}
+            </p>
+            <p>
+              {{"Current_Week_Amount"}}:
+              {{#if m}}
+                {{wamount}}
+              {{else}}
+                {{mamount}}
+              {{/if}}
+            </p>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <script id="maintable" type="text/x-handlebars-template">
+
+      <!--table-->
+      <div class="container">
+
+        <h2 style="text-align: center; color: #150ab8;">Order Table</h2>
+        {{#each five_order}}
+
+        <h4 style="text-align: center; color: #150ab8;">{{w_order}}</h4>
+            <table
+              class="table table-bordered table-hover"
+              style="text-align: center;"
+            >
+              <thead>
+                <tr>
+                  <th>Order No</th>
+                  <th>Total Amount</th>
+                  <th>Total Quantity</th>
+                  <th>User Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if a}}
+                {{#each_upto ../user 5 }}
+
+                <tr>
+                   <td>{{orderNo}}</td>
+                   <td>{{totalAmount}}</td>
+                  <td>{{totalQty}}</td>
+                  <td>{{userName}}</td>
+                </tr>
+
+                {{/each_upto}}
+                {{else  }}
+                {{#rev_each_upto ../user 5 }}
+
+                <tr>
+                  <td>{{orderNo}}</td>
+                  <td>{{totalAmount}}</td>
+                 <td>{{totalQty}}</td>
+                 <td>{{userName}}</td>
+               </tr>
+                {{/rev_each_upto}}
+                {{/if}}
+
+              </tbody>
+            </table>
+            {{/each}}
+
+          </div>
+          <div class="container">
+        <h2 style="text-align: center; color: #150ab8;">User Table</h2>
+        {{#each five_order}}
+
+        <h4 style="text-align: center; color: #150ab8;">{{w_order}}</h4>
+            <table
+              class="table table-bordered table-hover"
+              style="text-align: center;"
+            >
+              <thead>
+                <tr>
+                  <th>User Name</th>
+                  <th>Total Amount</th>
+                  <th>Total Quantity</th>
+                  <th>City</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if a}}
+                {{#each_upto ../user 5 }}
+                <tr>
+                  <td>{{userName}}</td>
+                  <td>{{totalAmount}}</td>
+                  <td>{{totalQty}}</td>
+                    <td>{{city}}</td>
+                </tr>
+                {{/each_upto}}
+                {{else  }}
+                {{#rev_each_upto ../user 5 }}
+
+                <tr>
+                <td>{{userName}}</td>
+                  <td>{{totalAmount}}</td>
+                  <td>{{totalQty}}</td>
+                   <td>{{city}}</td>
+                </tr>
+                {{/rev_each_upto}}
+                {{/if}}
+
+              </tbody>
+            </table>
+            {{/each}}
+          </div>
+
+
+          <div class="container">
+            <h2 style="text-align: center; color: #150ab8;">Detail Order Report</h2>
+              <table
+                  class="table table-bordered table-hover"
+                  style="text-align: center;"
+                >
+                  <thead>
+                    <tr>
+                      <th>User Name</th>
+                      <th>Order No</th>
+                      <th>Order Date</th>
+                      <th>Status</th>
+                      <th>Total Amount</th>
+                      <th>Total Qty</th>
+                      <th>Total Product Count</th>
+                      <th>View/edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    {{#each user  }}
+                    <tr>
+                      <td>{{userName}}</td>
+                      <td>{{orderNo}}</td>
+                      <td>{{orderDate}}</td>
+                      <td>{{status}}</td>
+                      <td>{{totalAmount}}</td>
+                      <td>{{totalQty}}</td>
+                      <td>{{totalProductCount}}</td>
+                      <td style="color:#150ab8"><i class="fa fa-eye" aria-hidden="true"></i></td>
+                    </tr>
+                    {{/each}}
+                   </tbody>
+                </table>
+
+              </div>
+    </script>
+
+    <div class="update_table4"></div>
+    <script id="update_table" type="text/x-handlebars-template">
+      <div class="container">
+        <h2 style="text-align: center; color: #150ab8;">
+          Detail Order Report
+        </h2>
+        <table
+          class="table table-bordered table-hover"
+          style="text-align: center;"
+        >
+          <thead>
+            <tr>
+              <th>
+                User Name
+              </th>
+              <th>
+                Order No
+              </th>
+              <th>
+                Order Date
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                Total Amount
+              </th>
+              <th>
+                Total Qty
+              </th>
+              <th>
+                Total Product Count
+              </th>
+              <th>
+                View/edit
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each user}}
+              <tr>
+                <td>
+                  {{userName}}
+                </td>
+                <td>
+                  {{orderNo}}
+                </td>
+                <td>
+                  {{orderDate}}
+                </td>
+                <td>
+                  {{status}}
+                </td>
+                <td>
+                  {{totalAmount}}
+                </td>
+                <td>
+                  {{totalQty}}
+                </td>
+                <td>
+                  {{totalProductCount}}
+                </td>
+                <td style="color:#150ab8">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </script>
+
+    <div class="container">
+      <form id="form">
+        <h4 style="color: #150ab8; text-align: center;">
+          Starting Date: <input type="date" id="sdate" required />
+        </h4>
+        <h4 style="color: #150ab8; text-align: center;">
+          Endinging Date: <input type="date" id="edate" required />
+        </h4>
+        <h4 style="color: #150ab8; text-align: center;">
+          <button class="button" id="submit">
+            Submit
+          </button>
+        </h4>
+      </form>
+    </div>
+
+    <!--  JavaScript -->
+
+    <script src="./script/jquery.js"></script>
+    <script src="./script/chart.js"></script>
+
+    <script src="script/handlebars.js"></script>
+    <script src="./script/fil.js"></script>
+    <script src="./script/app.js"></script>
+
+    <!-- <script type="text/javascript" src="/Date/date.js"></script>
+    <script type="text/javascript" src="/Date/daterangepicker.js"></script>
+    <script type="text/javascipt" src="./Date/moment.js"></script>
+    <script type="text/javascipt" src="./Date/moment.min.js"></script> -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- chartjs  -->
+    <!-- <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

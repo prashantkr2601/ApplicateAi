@@ -1,0 +1,260 @@
+{
+
+
+  "user": [{
+      "userName": "Amit",
+      "orderNo": 12,
+      "orderDate": "01/01/2020",
+      "status": "confirm",
+      "totalAmount": 100,
+      "totalQty": 1,
+      "totalProductCount": 12,
+      "city": "noida"
+
+    },
+    {
+      "userName": "Sumit",
+      "orderNo": 13,
+      "orderDate": "02/02/2020",
+      "status": "Reject",
+      "totalAmount": 200,
+      "totalQty": 10,
+      "totalProductCount": 120,
+      "city": "delhi"
+
+    },
+    {
+      "userName": "Alok",
+      "orderNo": 14,
+      "orderDate": "03/03/2020",
+      "status": "confirm",
+      "totalAmount": 500,
+      "totalQty": 11,
+      "totalProductCount": 115,
+      "city": "rohni"
+
+    },
+    {
+      "userName": "Abhi",
+      "orderNo": 15,
+      "orderDate": "04/04/2020",
+      "status": "reject",
+      "totalAmount": 700,
+      "totalQty": 12,
+      "totalProductCount": 110,
+      "city": "sector18"
+
+    },
+    {
+      "userName": "suresh",
+      "orderNo": 27,
+      "orderDate": "18/07/2020",
+      "status": "confirm",
+      "totalAmount": 1200,
+      "totalQty": 12,
+      "totalProductCount": 25,
+      "city": "sector20"
+
+    },
+    {
+      "userName": "mahesh",
+      "orderNo": 28,
+      "orderDate": "23/07/2020",
+      "status": "confirm",
+      "totalAmount": 1200,
+      "totalQty": 12,
+      "totalProductCount": 25,
+      "city": "sector20"
+
+    },
+    {
+      "userName": "ramesh",
+      "orderNo": 29,
+      "orderDate": "10/07/2020",
+      "status": "confirm",
+      "totalAmount": 1200,
+      "totalQty": 12,
+      "totalProductCount": 25,
+      "city": "sector20"
+
+    },
+    {
+      "userName": "Rahul",
+      "orderNo": 16,
+      "orderDate": "04/05/2020",
+      "status": "confirm",
+      "totalAmount": 100,
+      "totalQty": 1,
+      "totalProductCount": 12,
+      "city": "noida"
+
+    },
+    {
+      "userName": "manoj",
+      "orderNo": 17,
+      "orderDate": "06/05/2020",
+      "status": "confirm",
+      "totalAmount": 1000,
+      "totalQty": 112,
+      "totalProductCount": 123,
+      "city": "agra"
+
+    },
+    {
+      "userName": "hitesh",
+      "orderNo": 18,
+      "orderDate": "07/05/2020",
+      "status": "reject",
+      "totalAmount": 10050,
+      "totalQty": 111,
+      "totalProductCount": 1222,
+      "city": "mumbai"
+
+    },
+    {
+      "userName": "saroj",
+      "orderNo": 19,
+      "orderDate": "08/05/2020",
+      "status": "pending",
+      "totalAmount": 10025,
+      "totalQty": 150,
+      "totalProductCount": 1223,
+      "city": "gujrat"
+
+    },
+    {
+      "userName": "suman",
+      "orderNo": 20,
+      "orderDate": "09/05/2020",
+      "status": "pending",
+      "totalAmount": 10025,
+      "totalQty": 150,
+      "totalProductCount": 1223,
+      "city": "gujrat"
+
+    },
+    {
+      "userName": "shubham",
+      "orderNo": 21,
+      "orderDate": "08/07/2020",
+      "status": "pending",
+      "totalAmount": 10025,
+      "totalQty": 15,
+      "totalProductCount": 1223,
+      "city": "harayan"
+
+    },
+    {
+      "userName": "soni",
+      "orderNo": 22,
+      "orderDate": "08/09/2020",
+      "status": "confirm",
+      "totalAmount": 10400,
+      "totalQty": 121,
+      "totalProductCount": 122,
+      "city": "maharashtra"
+
+    },
+    {
+      "userName": "abhishek",
+      "orderNo": 23,
+      "orderDate": "08/10/2020",
+      "status": "pending",
+      "totalAmount": 12000,
+      "totalQty": 150,
+      "totalProductCount": 123,
+      "city": "kolakata"
+
+    },
+    {
+      "userName": "mamata",
+      "orderNo": 24,
+      "orderDate": "08/11/2020",
+      "status": "pending",
+      "totalAmount": 1002,
+      "totalQty": 150,
+      "totalProductCount": 1223,
+      "city": "gujrat"
+
+    },
+    {
+      "userName": "pankaj",
+      "orderNo": 25,
+      "orderDate": "09/12/2020",
+      "status": "pending",
+      "totalAmount": 11125,
+      "totalQty": 150,
+      "totalProductCount": 1223,
+      "city": "noida"
+
+    },
+    {
+      "userName": "chadrakant",
+      "orderNo": 26,
+      "orderDate": "11/12/2020",
+      "status": "confirm",
+      "totalAmount": 15525,
+      "totalQty": 150,
+      "totalProductCount": 1223,
+      "city": "gaziyabad"
+
+    }
+  ],
+
+  "table_name": [{
+      "u": true,
+      "w_table": "Order Table"
+    },
+    {
+      "u": false,
+      "w_table": "User Table"
+    }
+  ],
+
+  "five_order": [{
+      "w_order": "Top 5 Order",
+      "a": true
+
+    },
+    {
+      "a": false,
+
+      "w_order": "Bottom 5 Order"
+
+    }
+  ],
+
+
+
+  "count": [{
+      "heading1": "Order Count",
+      "today_order": "Today's Order",
+      "Current_Week_Order": "Current Week Order",
+      "c": true
+
+    },
+    {
+      "c": false,
+      "heading1": "Order Count",
+      "today_order": "MTD Order",
+      "Current_Week_Order": "Last Month Order"
+
+    }
+  ],
+
+  "amount": [{
+      "heading2": "Order Amount",
+      "Today_Order_Amount": "Today's Order Amount",
+      "Current_Week_Amount": "Current Week Amount",
+      "m": true
+    },
+    {
+      "m": false,
+      "heading2": "Order Amount",
+      "Today_Order_Amount": "MTD Order Amount",
+      "Current_Week_Amount": "Last Month Amount"
+
+    }
+  ]
+
+}
