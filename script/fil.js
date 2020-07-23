@@ -1,4 +1,119 @@
 $.getJSON("http://localhost:8080/Data/Data.json", function (data) {
+  $("#submit").click(function (e) {
+    e.preventDefault();
+    var sdate = $("#sdate").val();
+    var edate = $("#edate").val();
+    sdate = new Date(sdate);
+    edate = new Date(edate);
+
+    $(".update_table4").html(sdate + " " + " " + edate);
+    var result = [];
+    var resulta = data.user.filter(function (data) {
+      var hitDates = new Date(data.orderDate);
+      if (hitDates >= sdate && hitDates <= edate) {
+        result.push(data);
+      }
+    });
+    // var html = compiled_template({ groups: result });
+
+    var update_table = $("#update_table").html();
+    var update_table2 = Handlebars.compile(update_table);
+
+    // console.log({ groups: result });
+    $(".update_table4").html(update_table2({ groups: result }));
+
+    // console.log(result);
+  });
+
+  // var resultProductData = data.user.filter(function (a) {
+  //   var hitDateMatches = hitDates.filter(function (a) {
+  //     console.log(a);
+  //     return a >= sdate && a <= edate;
+  //   });
+  //   return hitDateMatches.length > 0;
+  // });
+  // console.log(resultProductData);
+
+  //     //   console.log(hitDates);
+  //     var resultProductData = data.user.filter(function (a) {
+  //       // console.log(a.orderDate);
+  //       //var hitDates = a.orderDate || {};
+  //       // console.log(hitDates);
+  //       // extract all date strings
+  //       // hitDates = Object.keys(hitDates);
+  //       // console.log(hitDates);
+  //       // convert strings to Date objcts
+  //       // hitDates = .map(function (date) {
+  //       //   return new Date(date);
+  //       // });
+
+  //       // hitDates = new Date(a.orderDate);
+  //       // console.log(hitDates);
+  //       // filter this dates by startDate and endDate
+  //       var hitDateMatches = hitDates.filter(function (a) {
+  //         console.log(a);
+  //         return a >= sdate && a <= edate;
+  //       });
+  //       // if there is more than 0 results keep it. if 0 then filter it away
+  //       return hitDateMatches.length > 0;
+  //     });
+  //     //   console.log(resultProductData);
+
+  //     //   var today_details = data.user.map(function (e) {
+  //     //     let da = e.orderDate;
+  //     //     let month = da.slice(3, 5);
+  //     //     // console.log(month);
+  //     //     let day = da.slice(0, 2);
+  //     //     let year = da.slice(6, 10);
+  //     //     // console.log(year);
+
+  //     //     let sday = sdate.slice(8, 10);
+  //     //     let smonth = sdate.slice(5, 7);
+  //     //     let syear = sdate.slice(0, 4);
+
+  //     //     let eday = edate.slice(8, 10);
+  //     //     let emonth = edate.slice(5, 7);
+  //     //     let eyear = edate.slice(0, 4);
+  //     //     // console.log(sday);
+  //     //     // console.log(smonth);
+  //     //     // console.log(syear);
+  //     //     // console.log(eday);
+  //     //     // console.log(emonth);
+  //     //     // console.log(eyear);
+
+  //     //     if (
+  //     //       (day >= sday &&
+  //     //         month >= smonth &&
+  //     //         year >= syear &&
+  //     //         day <= eday &&
+  //     //         month <= emonth &&
+  //     //         year <= eyear) ||
+  //     //       (day <= sday &&
+  //     //         month < smonth &&
+  //     //         year >= syear &&
+  //     //         day <= eday &&
+  //     //         month <= emonth &&
+  //     //         year <= eyear) ||
+  //     //       (day >= sday &&
+  //     //         month >= smonth &&
+  //     //         year >= syear &&
+  //     //         day >= eday &&
+  //     //         month <= emonth &&
+  //     //         year <= eyear) ||
+  //     //       (day <= sday &&
+  //     //         month < smonth &&
+  //     //         year >= syear &&
+  //     //         day >= eday &&
+  //     //         month < emonth &&
+  //     //         year <= eyear)
+  //     //     ) {
+  //     //       return e;
+  //     //     }
+  //     //   });
+  //     //   console.log(today_details);
+  //   });
+
+  console.log(data);
   var t = new Date();
   var d = t.getDate();
   var m = t.getMonth() + 1;
@@ -110,76 +225,4 @@ $.getJSON("http://localhost:8080/Data/Data.json", function (data) {
   Handlebars.registerHelper("mtdamount", function () {
     return mtdamount;
   });
-  $(document).ready(function () {
-    $("#submit").click(function (e) {
-      e.preventDefault();
-      var sdate = $("#sdate").val();
-      var edate = $("#edate").val();
-      //   $(".update_table4").html(sdate + " " + " " + edate);
-      var today_details = data.user.map(function (e) {
-        let da = e.orderDate;
-        let month = da.slice(3, 5);
-        // console.log(month);
-        let day = da.slice(0, 2);
-        let year = da.slice(6, 10);
-        // console.log(year);
-
-        let sday = sdate.slice(8, 10);
-        let smonth = sdate.slice(5, 7);
-        let syear = sdate.slice(0, 4);
-
-        let eday = edate.slice(8, 10);
-        let emonth = edate.slice(5, 7);
-        let eyear = edate.slice(0, 4);
-        // console.log(sday);
-        // console.log(smonth);
-        // console.log(syear);
-        // console.log(eday);
-        // console.log(emonth);
-        // console.log(eyear);
-
-        if (
-          (day >= sday &&
-            month >= smonth &&
-            year >= syear &&
-            day <= eday &&
-            month <= emonth &&
-            year <= eyear) ||
-          (day <= sday &&
-            month < smonth &&
-            year >= syear &&
-            day <= eday &&
-            month <= emonth &&
-            year <= eyear) ||
-          (day >= sday &&
-            month >= smonth &&
-            year >= syear &&
-            day >= eday &&
-            month <= emonth &&
-            year <= eyear) ||
-          (day <= sday &&
-            month < smonth &&
-            year >= syear &&
-            day >= eday &&
-            month < emonth &&
-            year <= eyear)
-        ) {
-          return e;
-        }
-      });
-      console.log(today_details);
-    });
-  });
 });
-
-// var update_table = $("#update_table").html();
-//           var update_table2 = Handlebars.compile(update_table);
-//           $.ajax(e).done(function (a) {
-//             console.log(update_table2(a));
-//             $(".update_table4").html(update_table2(a));
-//           });var update_table = $("#update_table").html();
-//           var update_table2 = Handlebars.compile(update_table);
-//           $.ajax(e).done(function (a) {
-//             console.log(update_table2(a));
-//             $(".update_table4").html(update_table2(a));
-//           });
